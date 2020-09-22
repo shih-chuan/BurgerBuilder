@@ -3,14 +3,14 @@ import classes from './Burger.module.sass'
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient'
 
 const burger = (props) => {
-    const ingredientsList = [];
+    let ingredientsList = [];
     for (const [ingdt, count] of Object.entries( props.ingredients )) {
         for(var i=0; i<count; i++){
             ingredientsList.push(<BurgerIngredient key={ingdt + i} type={ingdt} />);
         }
     }
     if (ingredientsList.length === 0) {
-        ingredientsList.push(<p>Please start adding ingredients!</p>)
+        ingredientsList = (<p>Please start adding ingredients!</p>)
     }
     console.log(ingredientsList);
     return (
